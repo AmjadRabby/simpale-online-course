@@ -25,7 +25,7 @@ const totalPrice = cart.reduce((acc, current) => acc + parseInt(current.price), 
                     
     <div className="">
             <div className="container-fluid px-2" >
-              <h2 className="text-center py-4 logo" id="logo-name">Online Course School</h2>
+              <h2 className="text-center py-4 logo" id="logo-name">Online Course</h2>
               <div className="row food-items">
                 <div className="col-md-9 row border-right">
                   {data.map(course => <Course key={course.id} course={course} addToCart={addToCart}/>)}
