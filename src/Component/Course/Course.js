@@ -1,33 +1,40 @@
-import React from 'react';
-import './Course.css';
+import React from "react";
 
 const Course = (props) => {
-    const {coursename, image, description, price,language, instructor} = props.course;
-    // console.log(course)
-    return (
-        <div className="course-container col-md-4 ">
-            <div className="">
-                <div className=" my-4">
-                    <div className="card p-2 ">
-                            <img className="card-img-top" src={image} />
-                         <div className="card-body">
-                            <h5>{coursename}</h5>
-                            <p className="card-title text-muted"><small>{description}</small></p>
-                            <p className="text-muted"><small>{language}</small></p>
-                            <p className="text-muted"><small >INSTRUCTOR: {instructor}</small></p>
-                            <p className="price text-muted">${price}</p>
-                            <button className="btn btn-sm btn-primary text-center main-btn"
-                            onClick={ () =>props.addToCart(props.course)}>ENROLL NOW</button>
-                         </div>
-                    </div>
-                 </div>
-             </div>
-             <div>
-                 
-             </div>
-
+    const {item, handleCourse} = props;
+  const {
+    courseName,
+    description,
+    image,
+    instructor,
+    price,
+    language,
+  } = item;
+  return (
+    <div className="col-4 mb-4">
+      <div className="card border-0 rounded shadow " style={{ height: "26rem" }}>
+        <img src={image} className="card-img-top img-fluid" alt="" />
+        <div className="card-body p-2">
+          <h5 className="card-title">{courseName}</h5>
+          <small className="card-text text-muted d-block mb-2">{description}</small>
+          <small className="text-info d-block font-weight-bold  mb-2">
+            Language: {language}
+          </small>
+          <small className="text-info d-block font-weight-bold  mb-2">
+            Instructor: {instructor}
+          </small>
+          <small className="text-info d-block font-weight-bold mb-2">
+            Price: ${price}
+          </small>
         </div>
-    );
+        <div className="card-footer bg-white p-0 border-0">
+          <button onClick={() => handleCourse(item)} className="btn btn-primary w-100">
+            ENROLL NOW
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Course;
